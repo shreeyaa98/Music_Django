@@ -24,7 +24,7 @@ def favorite(request,album_id):
             'error_message':"You did not Select Song"
             })
     else:
-        selected_song.is_favorite = True
+        selected_song.is_favourite = True
         selected_song.save()
-        print(selected_song,selected_song.is_favorite)
-        return render(request,'music/detail.html',{'album':album, 'b':selected_song.is_favorite})
+        print(selected_song,selected_song.is_favourite)
+        return render(request,'music/detail.html',{'album':album})
