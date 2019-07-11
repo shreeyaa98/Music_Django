@@ -1,0 +1,32 @@
+<!-- #Page that displays all the albums -->
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+
+<nav class="navbar-navbar-inverse">
+    <div class="container-fluid">
+        <!-- logo -->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> 
+            <!-- The button displayed in case screen size is small -->
+            <a class="navbar-brand" href="{% url 'music:index' %}">Brand_Name</a>
+        </div>
+    </div>
+</nav>
+
+{% if all_albums %}
+<h3>Here are all my Albums</h3>
+    <ul>
+        {% for album in all_albums %}
+        <li><a href="/music/{{album.id}}/">{{album.album_title}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>You Don't have any albums</h3>
+{% endif %}
