@@ -1,34 +1,6 @@
-<!-- Loading CSS file -->
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
-<!-- Page that displays songs
-
-<img src="{{ album.album_logo }}">
-<h1>{{ album.album_title}}</h1>
-<h3>{{album.artist}}</h3>
-
-{% if error_message %}
-    <p><strong>{{error_message}}</strong></p>
-{% endif %}
-
-
-<!-- Since in this it selects the song to add to favorite, Now the value of
-     radio button is song id and it's name is song so in post in a variable named song the 
-    valu is the song.id-->
-<!-- <form action="/music/{{album.id}}/favorite/" method="POST">
-    {% csrf_token %}
-    {% for song in album.song_set.all %}
-        <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{song.id}}"/>
-        <label for="song{{ forloop.counter }}">
-            {{song.song_title}}{{song.is_favorite}}
-            {% if song.is_favorite %}
-                <img src="http://i.imgur.com/b9b13Rd.png" alt="Fav"/>
-            {% endif %}
-        </label><br>
-    {% endfor %}
-    <input type="submit" value="favorite">
-</form> -->
-
+{% extends 'music/base.html' %}
+{% block title %}Song Details{% endblock %}
+{% block body %}
 
 <img src="{{ album.album_logo }}" alt="">
 
@@ -52,3 +24,4 @@
   {% endfor %}
   <input type="submit" value="Favorite">
 </form>
+{% endblock %}
